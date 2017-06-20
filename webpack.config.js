@@ -5,8 +5,8 @@ var BUILD_DIR = path.resolve(__dirname, 'static/');
 var APP_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
-    entry: APP_DIR + '/react.jsx',
-
+    /*entry: APP_DIR + '/react.jsx',*/
+    entry: APP_DIR + '/app.jsx',
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js'
