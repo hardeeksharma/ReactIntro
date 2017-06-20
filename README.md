@@ -1,9 +1,12 @@
 
 # REACT SETUP PROCESS
-Run the command below in the Terminal for the project directory.
-- npm install --save-dev babel-cli babel-loader babel-core babel-preset-react babel-preset-es2015 webpack
+Run the command below in the Terminal for the project directory. This will install all the node modules, that are required to run this project.
 
-this will install all the node modules, that are required to run this project.
+
+```sh
+npm install --save-dev babel-cli babel-loader babel-core babel-preset-react babel-preset-es2015 webpack
+```
+
 # HOW TO RUN THIS PROJECT
 
 - Transpile and bundle the react file by, after this you will see a bundle.js file in APP_DIR (src) folder
