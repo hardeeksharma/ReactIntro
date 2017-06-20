@@ -1,7 +1,7 @@
 
 # REACT SETUP PROCESS
-
--npm install --save-dev babel-cli babel-loader babel-core babel-preset-react babel-preset-es2015 webpack
+Run the command below in the Terminal for the project directory.
+- npm install --save-dev babel-cli babel-loader babel-core babel-preset-react babel-preset-es2015 webpack
 
 this will install all the node modules, that are required to run this project.
 # HOW TO RUN THIS PROJECT
