@@ -21,3 +21,8 @@ $ node server.js
 ```
 
 - Now open the link http://localhost:3333 and then you will see "Hello World 123" as output on the screen
+
+- To generate bunble.js file automatically start webpack in watch mode
+```sh
+$ node_modules\.bin\webpack --watch
+```
