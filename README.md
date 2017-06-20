@@ -5,7 +5,8 @@
 
 # HOW TO RUN THIS PROJECT
 
-- Compile the react file by 
+- Transpile and bundle the react file by, after this you will see a bundle.js file in BUILD_PATH (src) folder
+  specified inside webpack config.
 ```sh
 $ node_modules\.bin\webpack 
 ```
