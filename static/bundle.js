@@ -9831,11 +9831,15 @@ var App = function (_React$Component) {
                     ),
                     _react2.default.createElement("div", { className: "col-md-4" })
                 ),
-                _react2.default.createElement(_thumbnail2.default, { title: _data.data[0].title, url: _data.data[0].url }),
-                _react2.default.createElement(_thumbnail2.default, { title: _data.data[1].title, url: _data.data[1].url }),
-                _react2.default.createElement(_thumbnail2.default, { title: _data.data[2].title, url: _data.data[2].url }),
-                _react2.default.createElement(_thumbnail2.default, { title: _data.data[3].title, url: _data.data[3].url }),
-                _react2.default.createElement(_thumbnail2.default, { title: _data.data[4].title, url: _data.data[4].url })
+                // Start of JS Expression for data.map
+                _data.data.map(function (object) {
+                    return _react2.default.createElement(_thumbnail2.default, {
+                        title: object.title,
+                        url: object.url
+                    });
+                } // End of function
+                ) // End of Data.map
+
             );
         }
     }]);

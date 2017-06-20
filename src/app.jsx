@@ -18,11 +18,17 @@ export default class App extends React.Component{
                   <div className="col-md-4"></div>
 
               </div>
-              <Thumbnail title={data[0].title} url={data[0].url} />
-              <Thumbnail title={data[1].title} url={data[1].url} />
-              <Thumbnail title={data[2].title} url={data[2].url} />
-              <Thumbnail title={data[3].title} url={data[3].url} />
-              <Thumbnail title={data[4].title} url={data[4].url} />
+              { // Start of JS Expression for data.map
+                  data.map(function(object){
+                          return (
+                              <Thumbnail
+                                  title={object.title}
+                                  url={object.url}
+                              />
+                          );
+                      } // End of function
+                  ) // End of Data.map
+              }
           </div>
 
         );
