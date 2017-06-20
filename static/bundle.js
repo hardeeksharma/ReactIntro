@@ -9807,13 +9807,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
-    function App() {
+    function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.state = { current_title: _data.data[0].title, current_url: _data.data[0].url };
+        _this.setCurrentState = _this.setCurrentState.bind(_this);
+        return _this;
     }
 
     _createClass(App, [{
+        key: "setCurrentState",
+        value: function setCurrentState(title, url) {
+            //this.setState is used to modify the current state object
+            this.setState({ current_title: title, current_url: url });
+        }
+    }, {
         key: "render",
         value: function render() {
 
@@ -9827,17 +9837,20 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         "div",
                         { className: "col-md-4" },
-                        _react2.default.createElement(_mainBox2.default, null)
+                        _react2.default.createElement(_mainBox2.default, { title: this.state.current_title, url: this.state.current_url })
                     ),
                     _react2.default.createElement("div", { className: "col-md-4" })
                 ),
+
                 // Start of JS Expression for data.map
                 _data.data.map(function (object) {
                     return _react2.default.createElement(_thumbnail2.default, {
+                        key: object.title,
                         title: object.title,
-                        url: object.url
+                        url: object.url,
+                        setCurrentHandler: this.setCurrentState
                     });
-                } // End of function
+                }.bind(this) // End of function
                 ) // End of Data.map
 
             );
@@ -22507,21 +22520,33 @@ var Thumbnail = function (_React$Component) {
     }
 
     _createClass(Thumbnail, [{
-        key: "render",
-
-
+        key: "onButtonClickEvent",
+        value: function onButtonClickEvent(evt) {
+            console.log(this.props.setCurrentHandler(this.props.title, this.props.url));
+            console.log(evt);
+        }
         // All the props are stored in this.props
         /// Expect  variable title
         // Will be accessed by this.props.title
+
+    }, {
+        key: "render",
         value: function render() {
+
             var styleus = { marginLeft: "20px", marginRight: "20px" };
-            return _react2.default.createElement(
-                "span",
-                null,
+            return (
+                // To add style we pss object of style attributes
                 _react2.default.createElement(
-                    "button",
-                    { style: styleus, className: "btn btn-success btn-lg", url: this.props.url },
-                    this.props.title
+                    "span",
+                    null,
+                    _react2.default.createElement(
+                        "button",
+                        {
+                            onClick: this.onButtonClickEvent.bind(this) // this refers to current class
+                            // secont click is to bind this component props
+                            , style: styleus, className: "btn btn-success btn-lg" },
+                        this.props.title
+                    )
                 )
             );
         }
@@ -22585,11 +22610,11 @@ var MainBox = function (_React$Component) {
     _createClass(MainBox, [{
         key: "render",
         value: function render() {
-            var breathe = { width: "100%" };
+            var breathe = { width: "250px", height: "250px" };
             return _react2.default.createElement(
                 "div",
                 null,
-                _react2.default.createElement("img", { style: breathe, className: "img-rounded", src: "/images/belt.jpg" })
+                _react2.default.createElement("img", { style: breathe, className: "img-rounded", alt: this.props.title, src: this.props.url })
             );
         }
     }]);
